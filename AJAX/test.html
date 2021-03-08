@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="ajax.js"></script>
+<script>
+    let a = ajax({
+        method: "get",
+        url: './json/data.json',
+        data: {
+            name: 'xiaohui',
+            age: 22
+        },
+        cache: false,
+        success: (result) => {
+            console.log(result);
+        }
+    });
+</script>
+
+</html>

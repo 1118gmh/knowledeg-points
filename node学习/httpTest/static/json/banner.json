@@ -1,0 +1,21 @@
+[{
+    "id": 1,
+    "img": "img/1.png",
+    "desc": "小米10",
+    "link": "https://www.mi.com/buy/detail?product_id=10000214"
+}, {
+    "id": 2,
+    "img": "img/2.png",
+    "desc": "小米10",
+    "link": "https://www.mi.com/buy/detail?product_id=10000214"
+}, {
+    "id": 3,
+    "img": "img/3.png",
+    "desc": "小米10",
+    "link": "https://www.mi.com/buy/detail?product_id=10000214"
+}, {
+    "id": 4,
+    "img": "img/4.png",
+    "desc": "小米10",
+    "link": "https://www.mi.com/buy/detail?product_id=10000214"
+}]

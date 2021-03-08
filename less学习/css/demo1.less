@@ -1,0 +1,17 @@
+@import (reference) "common";
+.cc{
+    .transition;//默认值
+    .transition( @duration:1s)
+}
+@color: red;
+@bg-src:"../img";
+.box{
+    .centerPos(200, 200);
+    width: 200px;
+    height: 200px;
+    background: url("@{bg-src}/1.jpg") no-repeat;
+
+    a{
+        color: @color;
+    }
+}

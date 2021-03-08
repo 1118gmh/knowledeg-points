@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="ajaxPromise.js"></script>
+    <script>
+        ajaxPromise.defaults.baseURL = 'json'
+        ajaxPromise.get('/data.json', {
+            params: {
+                name: 'xiaohong',
+                age: 11
+            },
+            headers: {
+                'content-type': 'x-www-form-urlencode'
+            }
+        }).then((result) => {
+            console.log(result);
+        });
+        // ajaxPromise.post('/data.json', {
+        //     name: 'xiaoming',
+        //     age: 22
+        // }, {
+        //     headers: {
+        //         'content-type': 'x-www-form-urlencode'
+        //     }
+        // }).then((result) => {
+        //     console.log(result);
+        // });
+    </script>
+</body>
+
+</html>

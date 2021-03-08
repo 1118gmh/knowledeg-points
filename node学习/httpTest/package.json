@@ -1,0 +1,16 @@
+{
+    "name": "httptest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "server": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "mime": "^2.5.2",
+        "qs": "^6.9.6"
+    }
+}

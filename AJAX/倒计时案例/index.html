@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>倒计时</title>
+    <link rel="stylesheet" href="css/baseCss.css">
+    <style>
+        .timeBox {
+            margin: 20px auto;
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid lightblue;
+            font-size: 20px;
+        }
+        
+        .timeBox span {
+            color: lightcoral;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timeBox">
+        距离抢购还剩：
+        <span>-- : -- : --</span>
+    </div>
+    <!-- <script>
+        let timeBox = document.querySelector('.timeBox'),
+            timeSpan = timeBox.querySelector('span'),
+            timer = null,
+            _serverTime = null;
+
+        //从服务器获取时间
+        //(这会存在一个时间差，这个问题解决不了，因为服务器返回的响应时间，和客户端真正接受到这个响应的时间存在间隔)
+        //如何减小这个误差：
+        //  1. 获取响应头的时间（而不是获取响应主体的时间）
+        //  2. 请求方式设置为HEAD：只获取响应头信息即可，相应主体内容不需要
+        let queryTime = function() {
+            return new Promise(resolve => {
+                if (_serverTime) {
+                    _serverTime = new Date(_serverTime.getTime() + 1000);
+                    resolve(_serverTime);
+                    return;
+                }
+                let xhr = new XMLHttpRequest(),
+                    serverTime = null;
+                xhr.open('HEAD', 'json/data.json');
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 2 && /^(2|3)\d{2}$/.test(xhr.status)) {
+                        serverTime = new Date(xhr.getResponseHeader('date'));
+                        _serverTime = serverTime;
+                        resolve(serverTime);
+                    }
+                };
+                xhr.send(null);
+            });
+        };
+
+        //计算倒计时
+        let computedTime = function() {
+            //这样处理会存在一个问题：一个客户端每隔一秒就向服务器发送一个请求，这样下去访问用户多，服务器就爆了（超过负载均衡）
+            //解决：
+            let promise = queryTime();
+            promise.then(serverTime => {
+                let nowTime = serverTime,
+                    targetTime = new Date('2021/02/21 20:00:00'),
+                    diffTime = targetTime - nowTime;
+                if (diffTime >= 0) {
+                    let hours = Math.floor(diffTime / (1000 * 60 * 60)),
+                        minutes = Math.floor((diffTime - hours * 1000 * 60 * 60) / (1000 * 60)),
+                        seconds = Math.floor((diffTime - hours * 1000 * 60 * 60 - minutes * 60 * 1000) / 1000);
+                    hours < 10 ? hours = '0' + hours : null;
+                    minutes < 10 ? minutes = '0' + minutes : null;
+                    seconds < 10 ? seconds = '0' + seconds : null;
+
+                    timeSpan.innerHTML = `${hours} : ${minutes} : ${seconds}`;
+                    return;
+                }
+                timeSpan.innerHTML = `00 : 00 : 00`;
+                clearInterval(timer);
+            });
+        };
+        computedTime();
+        timer = setInterval(computedTime, 1000);
+    </script> -->
+    <script>
+        let timeBox = document.querySelector('.timeBox'),
+            timeSpan = timeBox.querySelector('span'),
+            serverTime = null,
+            timer = null;
+
+        let computedTime = (serverTime) => {
+            let currentTime = serverTime,
+                targetTime = new Date('2021/02/21 21:00:00'),
+                diffTime = targetTime - currentTime;
+            if (diffTime >= 0) {
+                let hours = Math.floor(diffTime / (60 * 60 * 1000)),
+                    minutes = Math.floor((diffTime - hours * (60 * 60 * 1000)) / (60 * 1000)),
+                    seconds = Math.floor((diffTime - hours * (60 * 60 * 1000) - minutes * (60 * 1000)) / 1000);
+
+                hours < 10 ? hours = '0' + hours : null;
+                minutes < 10 ? minutes = '0' + minutes : null;
+                seconds < 10 ? seconds = '0' + seconds : null;
+                timeSpan.innerHTML = `${hours} : ${minutes} : ${seconds}`;
+                return;
+
+            }
+            timeSpan.innerHTML = `00 : 00 : 00`;
+            clearInterval(timer);
+
+        };
+
+        window.onload = () => {
+            let promise = new Promise(resolve => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('HEAD', 'json/data.json');
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 2 && /^(2|3)\d{2}$/.test(xhr.status)) {
+                        serverTime = xhr.getResponseHeader('date');
+                        resolve(new Date(serverTime));
+                    }
+                };
+                xhr.send(null);
+            }).then(serverTime => {
+                timer = setInterval(() => {
+                    computedTime(serverTime);
+                    serverTime = new Date(serverTime.getTime() + 1000);
+                }, 1000);
+            });
+        };
+    </script>
+</body>
+
+</html>

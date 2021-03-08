@@ -1,0 +1,46 @@
+@import (reference) "common";
+.content {
+    width: 1000px;
+    margin: 20px auto;
+    ul{
+        //对浮动元素的父级添加overflow：hidden解决子盒子无法撑开父盒子的问题
+        overflow: hidden;
+        
+        li{
+            @W:300px;
+            float: left;
+            width: @W;
+            margin-right: 50px;
+            &:nth-of-type(3n){
+                margin-right: 0;
+            }
+            a{
+                display: block;
+            border: 1px solid lightseagreen;
+            border-radius: 0 0 20px 20px ;
+                margin-bottom: 20px;
+                &:hover{
+            box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+
+                }
+                div{
+                    width: @W;
+                    img{
+                        width: @W;
+                    }
+                }   
+                span{
+                    display: block;
+                    line-height: 20px;
+                    margin: 5px 0;
+
+                    padding: 0 10px;
+                    font-size: 12px;
+                    color: #9e7e6b;
+                }
+
+            }
+            
+        }
+    }
+}

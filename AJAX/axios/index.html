@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <script>
+        // let promise = axios.get('./json/data.json', {
+        //     params: {
+        //         name: 'xiaoming',
+        //         age: 22
+        //     }
+        // });
+        // promise.then(result => {
+        //     console.log(result);
+        // }).catch(msg => {
+        //     console.log(msg);
+        // });
+
+        // axios.get('./json/data.json').then(result => {
+        //     let {
+        //         data
+        //     } = result;
+        //     console.log(data);
+        //     return axios.post('./json/data.json');
+        // }).then(result => {
+        //     let {
+        //         data
+        //     } = result;
+        //     console.log(data);
+        // });
+
+        //一个装有promise实例的数组
+        // let sendAry = [axios.get('./json/data.json'), axios.get('./json/data.json'), axios.head('./json/data.json')];
+        // axios.all(sendAry).then(result => {
+        //     //result => 一个数组，装有各个请求返回的数据
+        //     console.log(result);
+        // });
+
+        // axios.all(sendAry).then(axios.spread((resA, resB, resC) => {
+        //     //resA,resB,resC分别代表三次请求的结果
+        //     console.log(resA);
+        //     console.log(resB);
+        //     console.log(resC);
+
+        // }));
+
+        // axios.all(sendAry).then(result => {
+        //     let [resA, resB, resC] = result;
+        //     console.log(resA);
+        //     console.log(resB);
+        //     console.log(resC);
+
+        // });
+
+
+        // axios.defaults.transformRequest = data => {
+        //     //data：请求主体中需要传递给服务器的内容
+        //     let str = ``;
+        //     for (let attr in data) {
+        //         if (data.hasOwnProperty(attr)) {
+        //             str += `${attr}=${data[attr]}&`
+        //         }
+        //     }
+        //     return str.substring(0, str.length - 1);
+        // };
+        // axios.post('./json/data.json', {
+        //     name: 'xiaohui',
+        //     age: 22
+        // });
+
+        //fetch
+        fetch('./json/data1.json', {
+            method: 'GET',
+            headers: {
+                'content-type': 'x-www-form-urlencode'
+            },
+            credentials: 'include'
+        }).then(result => {
+            let {
+                status
+            } = result;
+            if (/^(4|5)\d{2}$/.test(status)) {
+                throw Error('query data is error1');
+                return;
+            }
+            return result.json();
+        }).then(result => {
+
+            console.log(result);
+        }).catch(msg => {
+            console.log(msg);
+        });
+    </script>
+
+</body>
+
+</html>

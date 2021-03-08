@@ -62,13 +62,27 @@ git-hub官网：http://www.github.com
    git pull origin master    //提交之前最好先拉取
    git push origin master     //把本地代码提交到远程仓库（需要验证密码）
 
+   > 推送和拉取的作用是为了和远程仓库保持同步
+   
    git clone 远程仓库git地址 （别名，可以不设置，默认  仓库名）//克隆
+   
+   
 
 #### 真实项目开发流程：
- 	1. 组长和负责人先创建中央仓库
+  1. 组长和负责人先创建中央仓库
+
  	2. 小组成员基于git clone 把远程仓库几默认内容克隆岛本地一份
      （解决了3件事情：git init 、git remote add、git pull)
- 	3. 每个组员写完自己的程序后，基于git add/git commit把本地信息不和远程仓库信息把持同步即可，（可能要处理冲突问题）
+     
+  3. 每个组员写完自己的程序后，基于git add/git commit把本地信息不和远程仓库信息把持同步即可，（可能要处理冲突问题）
+
+  4. 团队协作开发的时候，leader会在gitHub账号下创建一个仓库，那么团队其他成员在向这个远程仓库推送信息的时候，使用自己的账号是没有推送权限的，我们需要当前这个远程仓库，在gitHub中创建工作群组，让更多人用自己的账号也有操作权限
+
+     首先
+
+     ![image-20210206183252520](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210206183252520.png)
+
+     然后对方接受并且邮箱中接受
 
 ### 出错及解决方案
 
