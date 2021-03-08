@@ -1,0 +1,16 @@
+{
+    "name": "fsTest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "fsTest.js",
+    "dependencies": {
+        "less": "^4.1.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "node test.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

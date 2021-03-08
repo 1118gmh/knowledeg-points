@@ -17,7 +17,6 @@
 
 <body>
     <div class="box"></div>
-
     <script src="./js/axios.min.js"></script>
     <script src="./js/md5.min.js"></script>
     <script>
@@ -40,7 +39,7 @@
             }
             return str.substring(0, str.length - 1);
         };
-        axios.get(`/getUser`, {
+        axios.get('/getUser', {
             params: {
                 //get请求问好传参：设置params
                 userId: 1

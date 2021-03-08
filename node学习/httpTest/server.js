@@ -55,9 +55,10 @@ let handle = function handle(req, res) {
     //getUser接口（若干个接口中的一个）处理
     if (pathname === '/getUser' && method === 'GET') {
         //问好传递的信息都在search中存储
-        let userId = (new URLSearchParams(search)).get('userId'),
-            returnVal = { code: 1, message: 'no!', data: null }
+        let userId = url.searchParams.get('userId'),
+            returnVal = { code: 1, message: 'no!', data: null };
         readUSER().then(result => {
+            console.log(result);
             let data = result.find(item => parseFloat(item['id']) === parseFloat(userId));
             if (data) {
                 returnVal = { code: 0, message: 'ok', data };
@@ -123,8 +124,6 @@ let handle = function handle(req, res) {
     //     'content-type': 'text/plain;charset=utf-8;'
     // })
     // res.end(JSON.stringify({ name: '哈哈' })); //服务器端返回给客户端的内容一般都是String或者BUFFER格式的数据
-
-
 };
 http.createServer(handle).listen(port, () => {
     //当服务创建成功，并且端口号也已经监听成功后，触发回调函数
