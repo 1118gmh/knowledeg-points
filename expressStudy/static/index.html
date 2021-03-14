@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet/less" href="css/banner.less">
+    <script src="js/less.min.js"></script>
+</head>
+
+<body>
+
+    <section class="container" id="container3">
+    </section>
+    <section class="container" id="container">
+    </section>
+    <section class="container" id="container2">
+    </section>
+    <script src="js/utils.js"></script>
+    <script src="js/animate.js"></script>
+    <!-- <script src="js/banner.js"></script> -->
+    <script src="js/banner-plugin.js"></script>
+    <script>
+        new Banner({
+            ele: '#container',
+            url: 'json/banner.json',
+            isArrow: false
+        });
+        new Banner({
+            ele: '#container2',
+            url: 'json/banner2.json',
+            interval: 500,
+            speed: 300,
+            isFocus: false
+        });
+        new Banner({
+            ele: '#container3',
+            url: 'json/banner.json',
+            interval: 2000,
+            speed: 1000,
+        });
+    </script>
+</body>
+
+</html>
