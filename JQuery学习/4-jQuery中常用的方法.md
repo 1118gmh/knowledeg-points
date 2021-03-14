@@ -87,7 +87,7 @@ $('.tab li').on('click', function() {
 ```js
 $.ajax({
     url:'json/product.json',
-    methos:'GET',
+    methods:'GET',
     dataType:'json', //默认
     async:false,
     success:function(result){
