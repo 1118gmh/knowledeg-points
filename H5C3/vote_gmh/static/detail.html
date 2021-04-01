@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投起来-详情页</title>
+    <!-- less -->
+    <link rel="stylesheet/less" href="css/detail.less">
+    <script src="js/less.min.js"></script>
+    <!-- REM -->
+    <script>
+        (function() {
+            let computedREM = function() {
+                let winW = document.documentElement.clientWidth,
+                    desc = 640;
+                if (winW > desc) {
+                    document.documentElement.style.fontSize = "100px";
+                    return;
+                }
+                document.documentElement.style.fontSize = winW / desc * 100 + "px";
+            };
+            computedREM();
+            window.addEventListener("resize", computedREM);
+        })();
+    </script>
+
+</head>
+
+<body>
+    <main class="mainBox">
+        <header class="headerBox">
+            <!-- <img src="images/boy.png" alt="">
+            <div class="information">
+                <span class="name">张三</span> |
+                <span class="matchId">编号#023</span>
+                <br/>
+                <span class="phone">13776821195</span>
+            </div>
+            <span class="voteNum">1票</span>
+            <div class="slogan">一票就好，我带你去看地老天荒</div> -->
+        </header>
+        <section class="detailBox">
+            <div class="title">投递我的人员</div>
+            <ul class="wrapper">
+                <!-- <li>
+                    <img src="images/boy.png" alt="">
+                    <div class="information">
+                        <span class="name">张三</span> <br>
+                        <span class="bio">hahahahahahahahahaha</span>
+                    </div>
+                </li> -->
+
+            </ul>
+        </section>
+    </main>
+
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/axios_default.js"></script>
+
+    <script src="js/zepto.min.js"></script>
+
+    <script src="js/component/nav.js"></script>
+    <script src="js/component/utils.js"></script>
+
+    <script src="js/md5.min.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+
+</html>

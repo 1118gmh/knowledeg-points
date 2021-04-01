@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投起来-参赛页</title>
+
+    <link rel="stylesheet/less" href="css/join.less">
+    <script src="js/less.min.js"></script>
+
+    <script>
+        (function() {
+            let computedREM = function() {
+                let winW = document.documentElement.clientWidth,
+                    desc = 640;
+                if (winW > desc) {
+                    document.documentElement.style.fontSize = "100px";
+                    return;
+                }
+                document.documentElement.style.fontSize = winW / desc * 100 + "px";
+            };
+            computedREM();
+            window.addEventListener("resize", computedREM);
+        })();
+    </script>
+</head>
+
+<body>
+
+    <section class="mainBox">
+        <header class="headerBox">
+            <img src="images/title.png" alt="">
+        </header>
+        <section class="joinBox">
+            <div class="item">
+                <h3>参赛标语：</h3>
+                <textarea name="" cols="30" rows="3" placeholder="限制在10-100字之间" id="selfDescription" class="selfDescription"></textarea>
+                <span class="descriptionSpan">字数不足10字或超出100字</span>
+            </div>
+            <a href="javascript:;" class="submit" id="submit">参加比赛</a>
+        </section>
+    </section>
+
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+
+    <script src="js/axios.min.js"></script>
+    <script src="js/axios_default.js"></script>
+
+    <script src="js/component/nav.js"></script>
+    <script src="js/component/utils.js"></script>
+
+    <script src="js/join.js"></script>
+
+</body>
+
+</html>

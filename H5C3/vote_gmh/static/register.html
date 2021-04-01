@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投一投-注册界面</title>
+    <link rel="stylesheet/less" href="css/register.less">
+    <script src="js/less.min.js"></script>
+
+    <script>
+        (function() {
+            let computedREM = function() {
+                let winW = document.documentElement.clientWidth,
+                    desc = 640;
+                if (winW > desc) {
+                    document.documentElement.style.fontSize = "100px";
+                    return;
+                }
+                document.documentElement.style.fontSize = winW / desc * 100 + "px";
+            };
+            computedREM();
+            window.addEventListener("resize", computedREM);
+        })();
+    </script>
+</head>
+
+<body>
+    <section class="mainBox">
+        <header class="headerBox">
+            <img src="images/title.png" alt="">
+        </header>
+        <section class="registerBox">
+            <div class="item">
+                <h3>用户名:</h3>
+                <input type="text" placeholder="请填写您的真实姓名" id="userName">
+                <span class="nameSpan">用户名格式错误</span>
+            </div>
+            <div class="item">
+                <h3>手机号码:</h3>
+                <input type="number" placeholder="请填写您常用的手机号" id="phone">
+                <span class="phoneSpan">手机号码格式错误</span>
+            </div>
+            <div class="item">
+                <h3>密码:</h3>
+                <input type="password" placeholder="由6-12位数字组成" id="passWord">
+                <span class="passwordSpan">密码格式错误</span>
+            </div>
+            <div class="item">
+                <h3>确认密码:</h3>
+                <input type="password" id="passwordOK">
+                <span class="passwordOKSpan">确认密码错误</span>
+            </div>
+            <div class="item">
+                <h3>自我描述:</h3>
+                <textarea name="" cols="30" rows="3" placeholder="限制在10-100字之间" id="selfDescription"></textarea>
+                <span class="descriptionSpan">字数不足10字或超出100字</span>
+            </div>
+            <div class="item">
+                <h3>性别:</h3>
+                <input type="radio" class="sex" name="sex" value="0" checked>男
+                <input type="radio" class="sex" name="sex" value="1">女
+                <span class="registerSpan">注册失败，用户名存在</span>
+            </div>
+            <a href="javascript:;" class="submit" id="submit">提交注册信息</a>
+            <script src="js/prefixfree.min.js"></script>
+            <script src="js/axios.min.js"></script>
+            <script src="js/axios_default.js"></script>
+
+            <script src="js/zepto.min.js"></script>
+
+            <script src="js/component/nav.js"></script>
+            <script src="js/component/utils.js"></script>
+
+            <script src="js/md5.min.js"></script>
+            <script src="js/register.js"></script>
+        </section>
+    </section>
+</body>
+
+</html>

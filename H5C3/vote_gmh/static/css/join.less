@@ -1,0 +1,61 @@
+@import "reset";
+@import "common";
+
+html,body{
+    height: 100%;
+}
+.mainBox{
+    height: 100%;
+    background:rgb(196, 255, 233);
+    
+    .headerBox{
+        position: relative;
+        box-sizing: border-box;
+        height: 5rem;
+        border-bottom: .1rem solid rgb(76, 153, 197);
+        background: rgb(51, 143, 218);
+        img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    .joinBox{
+        margin: .5rem auto;
+        width: 5.6rem;
+        .item{
+            width: 100%;
+            height: 3rem;
+            h3{
+                font-weight: lighter;
+                font-size: .3rem;
+                margin-bottom: .1rem;
+            }
+            .selfDescription{
+                padding: .1rem;
+                box-sizing: border-box;
+                width: 100%;
+                height: 2rem;
+                font-size: .25rem;
+            }
+            
+            span{
+                display: none;
+                color: red;
+            }
+        }
+        .submit{
+            display: block;
+            width: 5.6rem;
+            height: .8rem;
+            background: rgb(69, 137, 226);
+            text-align: center;
+            line-height: .8rem;
+            font-size: .3rem;
+            font-weight: bolder;
+            color: white;
+            
+        }
+    }
+}

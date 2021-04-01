@@ -1,0 +1,81 @@
+@import "reset";
+@import "common";
+
+.mainBox{
+    background:rgb(196, 255, 233);
+    .headerBox{
+        position: relative;
+        box-sizing: border-box;
+        height: 5rem;
+        border-bottom: .1rem solid rgb(76, 153, 197);
+        background: rgb(51, 143, 218);
+        img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    .registerBox{
+        margin: .5rem auto;
+        width: 5.6rem;
+        .item{
+            position: relative;
+            width: 100%;
+            height: 1.5rem;
+            h3{
+                font-weight: lighter;
+                margin-bottom: .1rem;
+            }
+            input{
+                box-sizing: border-box;
+                width: 100%;
+                height: 0.5rem;
+                padding-left: .2rem;
+            }
+            span{
+                display: none;
+                    font-size: .2rem;
+                    color: red;
+            }
+            
+            &:nth-of-type(5){
+                height: 3rem;
+            }
+            &:nth-of-type(5)>textarea{
+                box-sizing: border-box;
+                padding: .2rem;
+                width: 5.6rem;
+                resize: none;
+                line-height: .5rem;
+            }
+            &:nth-of-type(6){
+                font-size: .3rem;
+                input{
+                    margin:0 .2rem 0;
+                    width: 0.3rem;
+                    height: 0.3rem;
+                }
+                .registerSpan{
+                    position: absolute;
+                    left: 1rem;
+                    top: 1rem;
+                    display: none;
+                    color: red;
+                }
+            }
+
+        }
+        .submit{
+            display: block;
+            width: 5.6rem;
+            height: .8rem;
+            background: rgb(69, 137, 226);
+            text-align: center;
+            line-height: .8rem;
+            font-size: .3rem;
+            font-weight: bolder;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+@import "reset";
+@import "common";
+@keyframes shakeX {
+    from,
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+    }
+  
+    20%,
+    40%,
+    60%,
+    80% {
+      -webkit-transform: translate3d(10px, 0, 0);
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+
+.mainBox{
+    .headerBox{
+        position: relative;
+        box-sizing: border-box;
+        border-bottom: .1rem solid rgb(76, 153, 197);
+        height: 7rem;
+        background: rgb(51, 143, 218);
+        
+        .title{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -2.2rem 0 0 -2.2rem;
+            // transform: translate(-50%,-60%);
+            animation: shakeX 1s linear both;
+        }
+        .sign{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 1.4rem 0 0 -.75rem;
+            display: block;
+            width: 1.5rem;
+            height: .5rem;
+            background: orange;
+            border-radius: .75rem;
+            text-align: center;
+            line-height: .5rem;
+            color: white;
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, .1);
+        }
+        .search{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            justify-content: space-between;
+            margin: 2.2rem 0 0 -2rem;
+            width: 4rem;
+            height: .5rem;
+            border-radius: .25rem;
+            input{
+                width: 3rem;
+                height: 100%;
+                padding-left: .32rem;
+                border: none;
+                border-radius: .25rem 0 0 .25rem; 
+            }
+            .searchBth{
+                padding-left: .2rem;
+                width: .8rem;
+                height: 100%;
+                background: rgb(35, 76, 212);
+                border-radius: .0 .25rem .25rem 0; 
+                line-height: .5rem;
+                color: #f4f4f4;
+            }
+        }
+
+    }
+    .userList{
+        ul{
+            li{
+                position: relative;
+                height: 1.6rem;
+                background: white;
+                margin-bottom: .1rem;
+                img{
+                    position: absolute;
+                    top: .2rem;
+                    left: .2rem;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 50%;
+                }
+                .information{
+                    position: absolute;
+                    top: .2rem;
+                    left: 1.4rem;
+                    width: 3.5rem;
+                    height: 1rem;
+                    line-height: .5rem;
+                    overflow: hidden;
+                    .matchId{
+                        color: #ccc;
+                    }
+                    .slogan{
+                        display: block;
+                        width: 100%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+                .voteNum{
+                    position: absolute;
+                    top: .35rem;
+                    right: .65rem;
+                    font-weight: bolder;
+                    color: rgb(226, 114, 114);
+                }
+                .voted,.vote{
+                    position: absolute;
+                    right: .1rem;
+                    bottom: .3rem;
+                    width: 1.2rem;
+                    height: .5rem;
+                    background: rgb(35, 76, 212);
+                    text-align: center;
+                    line-height: .5rem;
+                    color: white;
+                    border-radius: .25rem;
+                }
+            }
+            
+        }
+        .tip{
+            display: none;
+            margin-top: .5rem;
+            text-align: center;
+            color: #ccc;
+        }
+        
+    }
+}

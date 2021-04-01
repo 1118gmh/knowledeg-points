@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>投起来</title>
+    <!-- less -->
+    <link rel="stylesheet/less" href="css/index.less">
+    <script src="js/less.min.js"></script>
+    <!-- REM -->
+    <script>
+        (function() {
+            let computedREM = function() {
+                let winW = document.documentElement.clientWidth,
+                    desc = 640;
+                if (winW > desc) {
+                    document.documentElement.style.fontSize = "100px";
+                    return;
+                }
+                document.documentElement.style.fontSize = winW / desc * 100 + "px";
+            };
+            computedREM();
+            window.addEventListener("resize", computedREM);
+        })();
+    </script>
+</head>
+
+<body>
+    <main class="mainBox">
+        <!-- <nav class="navBox">
+            <a href="index.html">首页</a>
+            <a href="login.html">登录</a>
+            <a href="register.html">注册</a>
+            <a href="detail.html"></a>
+            <a href="javascript:;">退出</a>
+        </nav> -->
+        <header class="headerBox">
+            <img src="images/title.png" alt="" class="title">
+            <a href="javascript:;" class="sign">我要参赛</a>
+            <div class="search">
+                <input type="search" placeholder="输入用户名查找">
+                <a href="javascript:;" class="searchBth">搜索</a>
+            </div>
+        </header>
+        <section class="userList">
+            <ul>
+                <!-- <li>
+                    <a href="">
+                        <img src="images/boy.png" alt="">
+                        <div class="information">
+                            <span class="name">张三</span> |
+                            <span class="matchId">编号#023</span>
+                            <br/>
+                            <span class="slogan">哈哈哈哈哈啊哈哈哈哈啊哈hhhhhhhhhh哈哈</span>
+                        </div>
+                        <span class="voteNum">1</span>
+                        <div class="vote">投他一票</div>
+                    </a>
+                </li> -->
+
+            </ul>
+            <div class="tip">暂时没有匹配的数据</div>
+        </section>
+    </main>
+    <!-- importJS -->
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/axios_default.js"></script>
+
+    <script src="js/zepto.min.js"></script>
+
+    <script src="js/component/nav.js"></script>
+
+
+    <script src="js/index.js"></script>
+    <!-- <script>
+        axios.defaults.baseURL = 'http://127.0.0.1:8686';
+        axios.defaults.validateStatus = function(status) {
+            return /^(2|3)\d{2}$/.test(status);
+        };
+        axios.interceptors.response.use(result => {
+            return result.data;
+        }, (reason) => {
+            return Promise.reject(reason);
+        });
+        axios.defaults.transformRequest = data => {
+            //data：请求主体中需要传递给服务器的内容
+            let str = ``;
+            for (let attr in data) {
+                if (data.hasOwnProperty(attr)) {
+                    str += `${attr}=${data[attr]}&`
+                }
+            }
+            return str.substring(0, str.length - 1);
+        };
+        // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencode';
+        axios.defaults.withCredentials = true;
+
+        //test:login
+        // axios.post('/login', {
+        //     name: '小高1',
+        //     password: md5('123456')
+        // }).then(res => {
+        //     console.log(res);
+        // });
+        // axios.get('/getMatchList?page=3&limit=8').then(res => {
+        //     console.log(res);
+        // });
+        // axios.get('/vote?participantId=1').then(res => {
+        //     console.log(res);
+        // });
+        // axios.get('/getMyVote').then(res => {
+        //     console.log(res);
+        // });
+        // axios.get('/checkUser?checkId=3').then(res => {
+        //     console.log(res);
+        // });
+        // axios.get('/checkPhone?phone=3776821195').then(res => {
+        //     console.log(res);
+        // });
+        // axios.post('/register', {
+        //     name: '渣渣会',
+        //     password: md5("123456"),
+        //     phone: 13776821196,
+        //     sex: 1,
+        //     bio: '我心无敌，则无敌'
+        // }).then(res => {
+        //     console.log(res);
+        // });
+        // axios.post('/match', {
+        //     slogan: "投我一票吧",
+        //     id: 27
+        // }).then(res => {
+        //     console.log(res);
+        // });
+    </script> -->
+</body>
+
+</html>

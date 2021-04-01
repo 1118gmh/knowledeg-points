@@ -1,0 +1,96 @@
+@import "reset";
+@import "common";
+.mainBox{
+    .headerBox{
+        position: relative;
+        box-sizing: border-box;
+        height: 4rem;
+        border-bottom: .1rem solid rgb(76, 153, 197);
+        background: rgb(51, 143, 218);
+        img{
+            position: absolute;
+            top: 1rem;
+            left: .5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: .5rem;
+        }
+        .information{
+            position: absolute;
+            top: 1rem;
+            left: 1.7rem;
+            width: 3rem;
+            height: 1rem;
+            line-height: .5rem;
+            font-size: .2rem;
+            color: white;
+        }
+        .voteNum{
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+            font-size: .4rem;
+            color: white;
+        }
+        .slogan{
+            position: absolute;
+            top: 2.5rem;
+            left: .5rem;
+            width: 5rem;
+            height: 1rem;
+            line-height: .5rem;
+            font-size: .25rem;
+            color: white;
+            overflow: hidden;
+            
+        }
+    }
+    .detailBox{
+        position: relative;
+        .title{
+            position: absolute;
+            top: .2rem;
+            left: 2.2rem;
+            width: 2rem;
+            height: .5rem;
+            background: orange;
+            border-radius: .25rem;
+            text-align: center;
+            line-height: .5rem;
+            font-size: .2rem;
+            color: white;
+        }
+        .wrapper{
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            width: 100%;
+            li{
+                position: relative;
+                width: 100%;
+                height: 1.6rem;
+                img{
+                    width: 1rem;
+                    height: 1rem;
+                    margin: .3rem;
+                    border-radius: .5rem;
+                }
+                .information{
+                    position: absolute;
+                    left: 1.6rem;
+                    top: .3rem;
+                    width: 4rem;
+                    height: 1rem;
+                    overflow: hidden;
+                    font-size: .2rem;
+                    line-height: .5rem;
+
+                }
+            }
+        }
+    }
+}
