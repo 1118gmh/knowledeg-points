@@ -92,5 +92,6 @@ app.use((req, res, next) => {
     //如果既不是API接口，又不是静态资源文件则404报错
     res.status(404);
     //并且重定向到一个404页面
-    res.redirect('http://www.qq.com/babyhome/');
+    // res.redirect('http://www.qq.com/babyhome/');
+    res.send({ code: 0, message: 'NO' });
 });

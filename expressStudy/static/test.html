@@ -21,7 +21,7 @@
     <script src="./js/md5.min.js"></script>
     <script>
         //设置默认路径
-        axios.defaults.baseURL = 'http://localhost:8686';
+        axios.defaults.baseURL = 'http://127.0.0.1:8686';
         //设置响应拦截器
         axios.interceptors.response.use(result => {
             return result.data;
@@ -39,6 +39,9 @@
             }
             return str.substring(0, str.length - 1);
         };
+        axios.defaults.headers['Content-type'] = 'application/x-www-form-urlencode';
+        //允许跨域携带cookie信息
+        axios.defaults.withCredentials = true;
         axios.get('/getUser', {
             params: {
                 //get请求问好传参：设置params
@@ -47,8 +50,8 @@
         }).then(result => {
             console.log(result);
         });
-        //axios默认基于请求主体传递给服务器的是RAW格式的：'{"name":"xxx"...}'
-        //真实项目中我们和服务器约定的传输格式应该是encodeed:"name=xxx..."
+        //axios默认基于请求主体传递给服务器的是RAW格式的：'{"name":"xxx"...}' JSON格式字符串
+        //真实项目中我们和服务器约定的传输格式应该是encodeed:"name=xxx..." 因此需要设置请求拦截器，让传递的对象转换为encodeed格式
         axios.post('/register', {
             //请求主体需要传递给服务器的内容
             name: '测试',

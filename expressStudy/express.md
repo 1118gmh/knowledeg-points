@@ -162,7 +162,7 @@ app.post('/login', (req, res) => {
     //密码二次加密
     password = password.substr(4, 24).split('').reverse().join('');
     //验证用户名、密码
-    let result = req.userData.find(item => item['name'] === name && item['passworld'] === password);
+    let result = req.userData.find(item => item['name'] === name && item['password'] === password);
     if (result) {
         //登录成功
         //需要记录session：

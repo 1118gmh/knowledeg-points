@@ -145,13 +145,17 @@ axios.defaults.transformRequest = data =>{
 //可以设定一个拦截器，让其在执行成功方法是的参数直接为返回的响应的主体
 axios.interceptors.response.use(result =>{
     return result.data;
+},(reason)=>{
+    return Promise.reject(reason);
 });
 
 //=>这些不是公共的最好放到每次的请求里面
 //设置超出时间
 axios.defaults.timeout = 2000;
 //设置请求头
-axios.defaults.headers['Content-type'] = 'x-www-form-urlencode';
+axios.defaults.headers['Content-type'] = 'application/x-www-form-urlencode';
+//允许跨域携带cookie信息
+axios.defaults.withCredentials = true;
 axios.defaults.params = {};
 axios.defaults.data = {};
 //在请求的config中配置相同属性名的，会覆盖前面配置的
