@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0">
+    <title>新浪网</title>
+    <meta name="keywords" content="新浪">
+    <meta name="description" content="">
+
+    <!-- import css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet/less" href="css/index.less">
+    <script src="js/less.min.js"></script>
+
+    <!-- prifixfree -->
+    <script src="js/prefixfree.min.js"></script>
+
+    <!-- rem -->
+    <script>
+        ;
+        (function() {
+            let computedREM = function() {
+                let winW = document.documentElement.clientWidth,
+                    desW = 640;
+                if (winW >= desW) {
+                    document.documentElement.style.fontSize = '100px';
+                    return;
+                }
+                document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+            };
+            computedREM();
+            window.addEventListener('resize', computedREM);
+        })();
+    </script>
+</head>
+
+<body>
+    <main class="mainBox">
+        <!-- header -->
+        <header class="headerBox">
+            <h1>新浪网</h1>
+            <a href="javascript:;" class="headerMenu"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </header>
+        <!-- nav -->
+        <nav class="navBox">
+            <a href="#">新闻</a>
+            <a href="#">财经</a>
+            <a href="#">体育</a>
+            <a href="#">娱乐</a>
+            <a href="#">军事</a>
+            <a href="#">科技</a>
+            <a href="#">视频</a>
+            <a href="#">美图</a>
+            <a href="#">NBA</a>
+            <a href="#">博客</a>
+            <a href="#">房产</a>
+        </nav>
+        <!-- banner -->
+        <section class="swiper-container bannerBox">
+            <div class="swiper-wrapper">
+                <!-- <div class="swiper-slide">
+                    <img src="img/2.jpg" alt="">
+                    <p>[NBA]老鹰99-94湖人</p>
+                </div> -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </section>
+
+        <!-- Message -->
+        <section class="messageBox">
+            <div class="liveFlag"></div>
+            <div class="swiper-container messageCon">
+                <div class="swiper-wrapper">
+                    <!-- <div class="swiper-slide">
+                        <a href="#">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- news -->
+        <section class="newsBox">
+            <ul class="container">
+                <li class="newItem">
+                    <img src="img/1.jpg" alt="">
+                    <h3>房价再次涌入到三四线</h3>
+                    <span>20</span>
+                </li>
+                <li class="newItem imgBox">
+                    <h3>房价再次涌入到三四线</h3>
+                    <div>
+                        <img src="img/1.jpg" alt="">
+                        <img src="img/1.jpg" alt="">
+                        <img src="img/1.jpg" alt="">
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

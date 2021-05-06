@@ -1,0 +1,151 @@
+@import "reset";
+@import "common";
+
+html{
+    font-size: 100px;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+.mainBox{
+    margin: 0 auto;
+    max-width: 640px;
+    background: #F4F4F4;
+}
+/*header*/ 
+.headerBox{
+    padding: 0 .2rem;
+    height: 1rem;
+    line-height: 1rem;
+    background: @blue;
+    h1{
+        float: left;
+        font-size: 0;
+        margin-top: .3rem;
+        width: 1.26rem;
+        height: 0.34rem;
+        background: url('../img/logo.svg') no-repeat;
+        background-size: 100% 100%;
+
+    }
+    a{
+        float: right;
+        margin-left: .32rem;
+        width: 0.44rem;
+        height: 100%;
+        background: rosybrown;
+        &:nth-of-type(1){
+            background: url('../img/caidanlan.svg') no-repeat;
+            background-size: 100% 100%;
+        }
+        &:nth-of-type(2){
+            background: url('../img/ren.svg') no-repeat;
+            background-size: 100% 100%;
+        }
+        &:nth-of-type(3){
+            background: url('../img/bojuelvpaiicontilian_huabanfuben.svg') no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    
+}
+.navBox{
+    padding: .16rem;
+    display: none;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    a{
+        width: 16.6%;
+        height: 0.64rem;
+        // background: rgba(0,0,0, .3);
+        line-height: .64rem;
+        text-align: center;
+        font-size: .32rem;
+        color: @text;
+    }
+}
+.bannerBox{
+    display: none; //当JS中数据绑定完成，我们才显示这个区域
+    height: 3.4rem;
+    overflow: hidden;
+    .swiper-slide{
+        position: relative;
+        height: 100%;
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+
+        }
+        p{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0 .2rem;
+            width: 100%;
+            height: .6rem;
+            background: rgba(0,0,0,.5);
+            font-size: .28rem;
+            line-height: .6rem;
+            color: #FFF;
+
+        }
+    }
+    .swiper-pagination{
+        left: auto;
+        right: 0;
+        bottom: 0;
+        width: 1rem;
+        height: 0.6rem;
+        line-height: .6rem;
+        text-align: center;
+        font-size: .28rem;
+        color:rgba(255,255,255,.8)
+        
+    }
+}
+.messageBox{
+    display: none;//获取到数据后显示
+    position: relative;
+    margin: .16rem 0;
+    height: .8rem;
+    background: #FFF;
+    .liveFlag{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1rem;
+        height: 0.8rem;
+        &::after{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -.2rem 0 0 -.37rem;
+            width: .74rem;
+            height: 0.4rem;
+            background: @red;
+            line-height: .4rem;
+            text-align: center;
+            font-size: .3rem;
+            color: #FFF;
+            content: "直播";
+        }
+    }
+    .swiper-container{
+        margin-left: 1rem;
+        height: .8rem;
+        overflow: hidden;
+        .swiper-slide{
+            height: .8rem;   
+            line-height: .8rem;
+
+            a{
+                display: block;
+                font-size: .28rem;
+                color:@text;
+                .text-clip;
+            }
+        }
+    }
+}

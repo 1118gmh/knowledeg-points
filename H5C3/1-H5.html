@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- <input type="number" id="ageNumber" step="1" max="65" min="18" value="25" disabled>
+    <input type="range" id="ageRange" step="1" max="65" min="18" value="25">
+    <script>
+        let ageNumber = document.getElementById('ageNumber'),
+            ageRange = document.getElementById('ageRange');
+        //移动端没有keyDown/keyUp，用input代替，代表我正在操作当前表单元素。
+        ageRange.oninput = function() {
+            let val = this.value;
+            ageNumber.value = val;
+        };
+    </script> -->
+    <!-- <input type="color" id="colorInp">
+    <script>
+        colorInp.onchange = function() {
+            console.log(this.value);//16进制的颜色值
+        };
+    </script> -->
+    <!-- <input type="date"> -->
+
+    <!-- <style>
+        .userEmail {
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        
+        .userEmail:valid {
+            /* 通过验证 */
+            border-color: green;
+        }
+        
+        .userEmail:invalid {
+            /* 没通过验证 */
+            border-color: red;
+        }
+        
+        .userEmail:valid+span::after {
+            content: '邮箱正确';
+        }
+        
+        .userEmail:invalid+span::after {
+            content: '邮箱错误';
+        }
+    </style> -->
+    <!-- <input type="email" id="userEmail" class="userEmail">
+    <span id="spanEmail"></span> -->
+    <!--
+    <script>
+        //使用js+H5提供的checkValidity来验证
+        userEmail.onkeydown = userEmail.onkeyup = function() {
+            if (this.checkValidity()) {
+                spanEmail.innerHTML = 'OK';
+            } else {
+                spanEmail.innerHTML = 'NO';
+            }
+        };
+    </script> -->
+    <!-- <script>
+        //使用正则搞验证
+        userEmail.onkeyup = userEmail.onblur = function() {
+            let val = this.value.trim();
+            if (val.length === 0) {
+                spanEmail.innerHTML = '必填';
+                return;
+            }
+            let reg = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9])*\.[A-Za-z0-9]+$/;
+            if (!reg.test(val)) {
+                spanEmail.innerHTML = 'ON'
+                return;
+            }
+            spanEmail.innerHTML = 'OK';
+        };
+    </script> -->
+    <!-- 下拉框 -->
+    <!-- 地区：
+    <select id="selectCity">
+        <option value="">请选择</option>
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="深证">深圳</option>
+        <option value="杭州">杭州</option>
+        <option value="成都">成都</option>
+    </select> -->
+
+</body>
+
+</html>
