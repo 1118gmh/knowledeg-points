@@ -1,0 +1,20 @@
+{
+  "presets": [ //presets(插件包)从下往上执行
+    //将高版本js文件向低版本转换
+    ["@babel/preset-env",{ 
+      //使用的api会自动转换，并且是按需加载
+      "useBuiltIns":"usage",
+      //preset-env的补丁，可以解析高级的语法
+      "corejs":2
+    }],
+    //使用preset-typescript来配置ts环境（不需要借助typescript）（allExtensions将所有其他文件转换为ts文件，再通过这个插件包转为js文件）
+    ["@babel/preset-typescript",{
+      "allExtensions": true  
+    }]
+  ],
+  "plugins": [ //plugins(插件)从上往下执行
+    ["@babel/plugin-proposal-decorators",{"legacy":true}], //解析装饰器（必须卸载类属性插件前面，且legacy为true时，loose必须为true）
+    ["@babel/plugin-proposal-class-properties",{"loose":true}], // 解析类属性插件（宽松语法）
+    "@babel/plugin-transform-runtime"
+  ]
+}
