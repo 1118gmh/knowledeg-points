@@ -1,4 +1,4 @@
-​    "webpack": "^5.24.4",
+    "webpack": "^5.24.4",
 
 ​    "webpack-cli": "^3.3.12",
 
@@ -179,13 +179,13 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             template:'../public/index.html', //原文件路径
-            filename:'index.html' //打包后文件
+            filename:'index.html', //打包后文件
             minify: {
             	removeAttributeQuotes: true, //去掉双引号
             	collapseWhitespace: true //压缩成一行
             },
             hash: true //给引入的js文件添加hash值
-        });
+        })
     ]
 }
 //静态资源文件模板，通过html-webpack-plugin可以自动在模板中引入js文件并且打包html文件
