@@ -218,3 +218,70 @@ app.use((req, res, next) => {
 });
 ```
 
+路由
+
+> 直接配置路由
+
+```
+【app】
+var express=require('express');
+//引入模块
+var app=new express();   //实例化
+
+app.use('/admin/goods',(req,res)=>{
+	...
+});
+app.use('admin/goods/add',(req,res)=>{...});
+app.use('/admin/goods/exit',(req,res)=>{...});   
+app.listen(3001,'127.0.0.1');
+```
+
+> 路由模块化使用
+
+```
+【app.js】
+var express=require('express');
+//引入模块
+var admin =require('./routes/admin.js');
+var home =require('./routes/home.js');
+var app=new express();   //实例化
+app.use('/home',home);   //前台(路由)  http://localhost:3001/home
+app.use('/admin',admin);  //后台(路由)  http://localhost:3001/admin
+app.use('/',home);     //默认加载前台(路由)
+app.listen(3001,'127.0.0.1');
+
+【routes/admin.js】
+var express=require('express');
+var router = express.Router();   //可使用 express.Router 类创建模块化、可挂载的路由句柄
+var goods=require('./admin/goods.js');
+var user=require('./admin/user.js');
+//配置路由
+router.use('/goods',goods);   // http://localhost:3001/admin/goods
+router.use('/user',user);    // http://localhost:3001/admin/user
+module.exports = router;   //暴露这个 router模块
+
+【routes/admin/goods.js】
+var express=require('express');
+var router = express.Router();   //可使用 express.Router 类创建模块化、可挂载的路由句柄
+ 
+// http://localhost:3001/admin/goods
+router.get('/',function(req,res){
+    res.send('显示商品首页');
+});
+ 
+// http://localhost:3001/admin/goods/add
+router.get('/add',function(req,res){
+    res.send('显示商品 增加');
+});
+ 
+router.get('/edit',function(req,res){
+    res.send('显示商品 修改');
+});
+ 
+router.get('/delete',function(req,res){
+    res.send('显示商品 删除');
+});
+ 
+module.exports = router;   //暴露这个 router模块
+```
+
