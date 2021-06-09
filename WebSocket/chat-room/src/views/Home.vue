@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import io from 'socket.io-client';
-const socket = io('http://127.0.0.1:8888');
+//用的默认的命名空间下的默认房间，不需要io()
+// import io from 'socket.io-client';
+// const socket = io();
 export default {
   data () {
     return {
@@ -58,9 +59,7 @@ export default {
   },
   sockets:{
     connect(){
-      // this.isConnect = this.$socket.connected;
       console.log("连接");
-      console.log(socket);
     },
     repeatName(repeatTip){
       this.tishi = repeatTip;

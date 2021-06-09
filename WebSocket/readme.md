@@ -9,7 +9,98 @@ socket.io-client
 express
 socket.io
 ```
+### API
+
+```
+【io.socket】
+方法
+socket.id
+socket.open()
+socket.connect()
+socket.send([...args]);
+socket.emit(eventName,[,...args]);
+socket.on(eventName,callback);
+socket.compress(value);
+socket.close()
+socket.disconnect()
+
+默认事件
+connect：当与对方建立来联系后自动触发
+disconnect：当对方关闭连接后触发
+message：当收到对方发来的数据后触发
+reconnect：当对方重新连接后触发
+
+自定义事件
+通过on定义，通过emit触发
+socket.emit(eventName,[,...args]);
+socket.on(eventName,callback);
+```
+
+### 关于namespace和room的一点知识
+
+```
+【namespace】
+- 默认的命名空间
+io.on('connection', function(socket){    
+      socket.on('disconnect', function(){ });
+}); 
+
+- 自定义的命名空间
+// 服务器端
+var nsp = io.of('/my-namespace'); 
+nsp.on('connection', function(socket){    
+      socket.on('disconnect', function(){ });
+}); 
+
+// 客户端  io.connect(  http://localhost/namespace)
+var socket = io('/my-namespace'); 
+
+
+【rooms】
+// 自定义room
+io.on('connection', function(socket){    
+
+      socket.join('myroom')); // 通过join让socket加入myroom房间
+      socket.leave('myroom'); // 离开leave让socket用户离开myroom房间
+	
+	//广播给这个socket所属的 namespace里的所有客户端
+	socket.broadcast.emit('message', "hhh");
+	
+	//广播给跟socket同一个namespace下面的，名字为 chat的room里的除自己以外的客户端。
+	socket.broadcast.in('chat).emit('message', "hhh");
+
+
+    // 默认房间（每一个id一个room）
+    socket.on('say to someone', function(id, msg){    
+           socket.broadcast.to(id).emit('my message', msg); 
+    }); 
+}); 
+
+//广播给默认namespace / 和默认room
+io.send("hahaha);
+
+//发给 private namespace里的所有客户端。
+io.of('/private').send("hahaha");
+
+//发给private namespace里面的 chat room的所有客户端
+io.of('/private').in('chat').send("hahaha");
+
+【如何记忆】
+io开头，可以指定namespace和room
+socket开发，则namespace已指定，只能修改room
+```
+
+
+
+### 聊天室模型
+
+```
+【多人聊天室】
+在客户端发送消息，通过向服务器端推送消息，由服务器端广播，让所有客户端接收消息
+```
+
 ### 后端
+
 ```js
 let express = require('express');
 let app = express();
@@ -137,7 +228,11 @@ maybe will to do
 ```
 1. 发送消息后自动显示在最底下
 
-2. 一对一聊天室的实现
+2. 提示对方正在输入
+
+3. 显示当前聊天室的人数
+
+4. 一对一聊天室的实现
 
 ```
 
