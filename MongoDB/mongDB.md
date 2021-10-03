@@ -1,9 +1,21 @@
-### mongDB
+### nodejs操作mongDB数据库
 
 ```
 /**
 * 数据库操作
 */
+//引入mongodb模块
+const { MongoClient } = require("mongodb");
+//连接数据库 (要输入对应用户名、密码、以及连接的哪个数据库)
+const uri = "mongodb+srv://gaominghui:<password>@cluster0.fp8ji.mongodb.net/sample_airbnb?retryWrites=true&w=majority";
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+//等待连接成功，连接成功后就可以对数据库进行操作了！
+//await client.connect();
+//console.log("Connected correctly to server");
+
 //创建数据库   若sample_airbnb存在，则获取这个数据库，若不存在，则自动创建
 // const db = client.db('sample_airbnb');
 //获取sample_airbnb数据库中的listingsAndReviews集合
@@ -44,5 +56,10 @@
 //删除 deleteOne deleteMany
 // await listingsAndReviews.deleteOne({"name":"gmh"});
 // await listingsAndReviews.deleteMany({});
+
+
+//...
+//更多参考mongoDB API
+//http://mongodb.github.io/node-mongodb-native/3.6/api/index.html
 ```
 

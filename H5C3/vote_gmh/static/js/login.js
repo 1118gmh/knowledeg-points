@@ -33,6 +33,7 @@ let loginRender = (function($) {
             let code = parseFloat(result.code);
             if (code === 0) {
                 //登录成功
+                debugger;
                 window.location.href = fromURL;
                 return;
             }

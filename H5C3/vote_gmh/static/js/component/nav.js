@@ -26,7 +26,7 @@ $(function() {
             $navList.eq(1).html(name);
         }
     }).then(()=>{
-        //基于时间委托给navBox中的a绑定点击事件
+        //基于事件托给navBox中的a绑定点击事件
         $navBox.tap(ev=>{
             let target = ev.target,
                 tarTAG = target.tagName,
