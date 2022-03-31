@@ -1,0 +1,21 @@
+# 回退到上一个版本
+git reset --hard HEAD^   
+
+# 回退到某个版本
+git reset --hard 1094a
+
+# 显示所有的命令操作，可以查看到具体回退的版本，方便撤销操作
+git reflog
+
+# 强制提交回退的版本（不要pull）
+git push origin master --force
+
+# 暂存区到工作区
+git reset HEAD first.txt
+
+# 丢弃工作区的修改
+ git checkout -- first.txt
+ 
+ # 
+ 
+ 
