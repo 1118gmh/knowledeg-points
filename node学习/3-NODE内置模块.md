@@ -197,7 +197,9 @@ http.createServer(handle).listen(port,()=>{
 //这种错误是由于端口号被占用了，我们需要修改端口号
 ```
 
-
-
-
+5. child_process
+```
+创建一个shell，然后执行一个命令
+child_process.exec(cmd[,options][,callback])
+```
 
