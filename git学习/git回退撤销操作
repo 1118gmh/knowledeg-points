@@ -1,4 +1,9 @@
-#回退
+# 回退的两种方式
+ git reset   单人开发一个分支时使用
+ git revert  多人开发一个分支时使用
+ 使用方式一样
+
+# 回退
 git reset --hard  删除工作区间，撤销git add .,回退commit
 git reset --mixed 不删除工作区间，撤销git add .,回退commit
 git reset --sort  不删除工作区间，不撤销git add .,回退commit
