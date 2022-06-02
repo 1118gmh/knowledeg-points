@@ -1,3 +1,8 @@
+#回退
+git reset --hard  删除工作区间，撤销git add .,回退commit
+git reset --mixed 不删除工作区间，撤销git add .,回退commit
+git reset --sort  不删除工作区间，不撤销git add .,回退commit
+
 # 回退到上一个版本
 git reset --hard HEAD^   
 
